@@ -1,10 +1,6 @@
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set VISUAL nvim
-set EDITOR nvim
-set BROWSER firefox-developer-edition
-set TERMINAL alacritty
 set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level low
 
@@ -26,11 +22,11 @@ end
 
 # Fish command history. Show in reverse chronological order.
 function history
-    builtin history --show-time='%F %T'
+    builtin history --show-time='%F %T $ ' --reverse
 end
 
 # Replace ls with exa
-alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
+alias ls='exa -l --color=always --group-directories-first --icons' # preferred listing
 alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first --icons'  # long format
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
@@ -63,6 +59,4 @@ alias compress100="mogrify -path . *.jpg -resize 1200 -quality 100 *.jpg"
 # set java home
 set -x JAVA_HOME (asdf where java)
 set -x ANDROID_HOME ~/Android/Sdk
-
-
 set -p PATH $ANDROID_HOME/platform-tools
