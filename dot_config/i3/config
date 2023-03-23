@@ -1,7 +1,7 @@
 set $mod Mod4
 set $alt Mod2
 ###### Run on startup
-exec picom -b --experimental-backends
+exec picom --config ~/.config/picom/picom.conf 
 # Set the redshift (night mode)
 exec redshift -l -21.9584:-51.317 -b 1.0:0.75
 # Set the network manager applet
@@ -28,9 +28,9 @@ exec_always feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
 
 
 set $tasks "kitty -e htop"
-set $locker "i3lock -c 000000"
-set $suspeder "i3lock -c 000000 && systemctl suspend"
-set $browser "/usr/bin/google-chrome-stable"
+set $locker "i3lock -i ~/Pictures/wallpapers/i3-lock.png"
+set $suspeder "i3lock -i ~/Pictures/wallpapers/i3-lock.png && systemctl suspend"
+set $browser "/usr/bin/brave"
 set $terminal_path /usr/bin/kitty
 set $menu rofi -show drun -show-icons
 set $windows rofi -show window -show-icons
