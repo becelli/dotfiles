@@ -1,0 +1,216 @@
+set $mod Mod4
+set $alt Mod2
+###### Run on startup
+exec picom -b --experimental-backends
+# Set the redshift (night mode)
+exec redshift -l -21.9584:-51.317 -b 1.0:0.75
+# Set the network manager applet
+exec nm-applet
+# Set the bluetooth applet
+exec --no-startup-id blueman-applet
+# Clipboard manager
+exec diodon
+# Keyboard indicator
+exec --no-startup-id gxkb
+bindsym $mod+Home exec setxkbmap us
+bindsym $mod+Delete exec setxkbmap br
+### Run on every restart of i3
+
+# Setup the displays
+# exec_always xrandr --output eDP-1 --auto --primary --left-of HDMI-1-0 --auto
+#exec_always xrandr --output eDP-1-1 --primary --auto --left-of HDMI-0 --auto
+exec_always feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
+# Enable mouse moving floating windowspowermenu
+
+########################
+# Default applications #
+########################
+
+
+set $tasks "kitty -e htop"
+set $locker "i3lock -c 000000"
+set $suspeder "i3lock -c 000000 && systemctl suspend"
+set $browser "/usr/bin/google-chrome-stable"
+set $terminal_path /usr/bin/kitty
+set $menu rofi -show drun -show-icons
+set $windows rofi -show window -show-icons
+set $news "kitty -e newsboat"
+set $bible "kitty -e kjvb"
+set $powermenu "$HOME/.config/scripts/rofi-power-menu"
+set $file_manager "kitty -e lf"
+set $alsa_mix kitty -e alsamixer
+set $mail "kitty -e neomutt"
+# set $calender "$browser https://calendar.google.com/calendar/b/0/r"
+set $screenshot "flatpak run org.flameshot.Flameshot gui"
+set $journal "kitty -e 'journalctl -f'"
+set $networks "kitty -e nmtui"
+set $calculator "rofi -show calc -modi calc -no-show-match -no-sort"
+
+# calculator
+bindsym $mod+Shift+c exec $calculator
+bindsym $mod+c exec $calendar
+bindsym $mod+w exec $browser
+
+# bindsym $mod+Shift+w exec $networks
+bindsym $mod+q exec $tasks
+bindsym $mod+n exec $news
+bindsym $mod+b exec $bible
+bindsym $mod+p exec $alsa_mix
+bindsym $mod+o exec $file_manager
+bindsym $mod+m exec $mail
+bindsym $mod+Shift+m exec $journal
+bindsym $mod+x exec $tasks
+bindsym $mod+Return exec $terminal_path
+bindsym $mod+Shift+p exec $powermenu
+bindsym $mod+Shift+x exec $screenshot_copy
+bindsym $mod+Shift+n exec $networks
+bindsym Print exec $screenshot
+
+bindsym $mod+space exec $menu
+bindsym $mod+Shift+space exec $windows
+
+bindsym $mod+Escape exec $locker
+bindsym $mod+Shift+Escape exec $suspeder
+########################
+# Workspaces and layout
+########################
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+### Switch workspaces
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+### Move focusoed window to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+floating_modifier $mod
+
+
+########################
+# Windows manipulation #
+########################
+# Move windows
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left 100 px
+bindsym $mod+Shift+j move down 100 px
+bindsym $mod+Shift+k move up 100 px
+bindsym $mod+Shift+l move right 100 px
+
+# Toggle modes
+bindsym $mod+Shift+f floating toggle
+bindsym $mod+t layout toggle tabbed splith splitv
+# Change container layout
+# tabbed, stacked, splitv, splith
+bindsym $mod+Shift+s layout stacking
+# bindsym $mod+Shift+v layout splitv
+# bindsym $mod+Shift+h layout splith
+bindsym $mod+Shift+t layout tabbed
+
+
+# Switch between normal and floating mode
+bindsym $mod+Shift+v focus mode_toggle
+# Cycle across workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+r restart
+
+########################
+# Resize windows
+########################
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt  
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+popup_during_fullscreen smart
+focus_follows_mouse yes
+
+
+########################
+# Bar
+########################
+font pango:JetBrainsMono NF 10
+bar {
+  position top
+  tray_output primary
+  tray_padding 2
+  separator_symbol "|"
+  status_command i3status
+  status_command ~/.config/i3/weather.sh
+}
+
+
+# show calculator
+
+# reduce volume
+
+#bindsym $mod+F5 exec i3-sensible-terminal -e 'mocp'
+
+# bindsym Print exec flatpak run org.flameshot.Flameshot gui
+# bindsym Print exec flatpak run org.flameshot.Flameshot gui
+
+# # Mute microphone on <Mod> + Shift + A
+#bindsym $mod+Shift+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+
+
+
+# Gaps, colors and borders
+gaps inner 10
+default_border pixel 1
+default_floating_border pixel 1
+hide_edge_borders none
+bindsym $mod+plus gaps inner all plus 5
+bindsym $mod+minus gaps inner all minus 5
+smart_gaps on
+new_window pixel 2
+new_float pixel 2
+# kill the focused window
+bindsym $mod+Shift+q kill
+
+for_window [urgent=latest] focus

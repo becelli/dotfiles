@@ -1,0 +1,1 @@
+*/5 * * * * curl -s wttr.in/Andradina?format=4 | head -n 7 > ~/.weather.cache
