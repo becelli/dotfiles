@@ -11,11 +11,8 @@ exec --no-startup-id blueman-applet
 # Clipboard manager
 exec diodon
 # Keyboard indicator
-exec --no-startup-id gxkb
-bindsym $mod+Home exec setxkbmap us
-bindsym $mod+Delete exec setxkbmap br
-### Run on every restart of i3
-
+exec gxkb
+exec setxkbmap -layout us,br -option 'grp:win_space_toggle'
 # Setup the displays
 # exec_always xrandr --output eDP-1 --auto --primary --left-of HDMI-1-0 --auto
 #exec_always xrandr --output eDP-1-1 --primary --auto --left-of HDMI-0 --auto
@@ -66,7 +63,7 @@ bindsym $mod+Shift+x exec $screenshot_copy
 bindsym $mod+Shift+n exec $networks
 bindsym Print exec $screenshot
 
-bindsym $mod+space exec $menu
+bindsym $mod+d exec $menu
 bindsym $mod+Shift+space exec $windows
 
 bindsym $mod+Escape exec $locker
