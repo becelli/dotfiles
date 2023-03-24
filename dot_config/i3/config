@@ -1,5 +1,4 @@
 set $mod Mod4
-set $alt Mod2
 ###### Run on startup
 exec picom --config ~/.config/picom/picom.conf 
 # Set the redshift (night mode)
@@ -12,7 +11,9 @@ exec --no-startup-id blueman-applet
 exec diodon
 # Keyboard indicator
 exec gxkb
-exec setxkbmap -layout us,br -option 'grp:win_space_toggle'
+# OneDrive Sync
+exec onedrivegui
+exec_always setxkbmap -layout us,br -option 'grp:win_space_toggle'
 # Setup the displays
 # exec_always xrandr --output eDP-1 --auto --primary --left-of HDMI-1-0 --auto
 #exec_always xrandr --output eDP-1-1 --primary --auto --left-of HDMI-0 --auto
@@ -33,11 +34,11 @@ set $menu rofi -show drun -show-icons
 set $windows rofi -show window -show-icons
 set $news "kitty -e newsboat"
 set $bible "kitty -e kjvb"
-set $powermenu "$HOME/.config/scripts/rofi-power-menu"
+#set $powermenu "$HOME/.config/scripts/rofi-power-menu"
 set $file_manager "kitty -e lf"
-set $alsa_mix kitty -e alsamixer
+set $alsa_mix "kitty -e alsamixer"
 set $mail "kitty -e neomutt"
-# set $calender "$browser https://calendar.google.com/calendar/b/0/r"
+set $calendar "$browser https://calendar.google.com/calendar/b/0/r"
 set $screenshot "flatpak run org.flameshot.Flameshot gui"
 set $journal "kitty -e 'journalctl -f'"
 set $networks "kitty -e nmtui"
@@ -58,8 +59,8 @@ bindsym $mod+m exec $mail
 bindsym $mod+Shift+m exec $journal
 bindsym $mod+x exec $tasks
 bindsym $mod+Return exec $terminal_path
-bindsym $mod+Shift+p exec $powermenu
-bindsym $mod+Shift+x exec $screenshot_copy
+#bindsym $mod+Shift+p exec $powermenu
+bindsym $mod+Shift+x exec $screenshot
 bindsym $mod+Shift+n exec $networks
 bindsym Print exec $screenshot
 
@@ -167,7 +168,7 @@ bar {
   position top
   tray_output primary
   tray_padding 2
-  separator_symbol "|"
+  #separator_symbol "|"
   status_command i3status
   status_command ~/.config/i3/weather.sh
 }
@@ -198,7 +199,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 
 # Gaps, colors and borders
-gaps inner 10
+gaps inner 0
 default_border pixel 1
 default_floating_border pixel 1
 hide_edge_borders none
