@@ -126,3 +126,7 @@ element-text, element-icon {
 //@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
 //@theme "/usr/share/rofi/themes/dmenu.rasi"
 @theme "/usr/share/rofi/themes/dmenu.rasi"
+
+* {
+    font: "JetBrainsMono NF 12";
+}
