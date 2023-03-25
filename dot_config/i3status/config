@@ -76,7 +76,8 @@ tztime local {
 
 load {
 #        format = "💻 %1min | %5min | %15min"
-	 format = "💻 %1min | %5min"
+#	 format = "💻 %1min | %5min"
+	 format = "💻 %1min"
 }
 
 memory {
