@@ -22,3 +22,30 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+alias ls='exa -l --color=always --group-directories-first --icons' # preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+alias cat='bat --style header --style snip --style changes --style header'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias rungcc="gcc main.c -lm -o gcc && ./gcc"
+alias runclang="clang main.c -lm -o clang && ./clang"
+alias runmingw="x86_64-w64-mingw32-gcc main.c -lm -o mingw.exe && wine ./mingw.exe"
+alias compress70="mogrify -path . *.jpg -resize 900 -quality 70 *.jpg"
+alias compress70png="mogrify -path . *.png -resize 900 -quality 70 *.jpg"
+alias compress100="mogrify -path . *.jpg -resize 1200 -quality 100 *.jpg"
+
+ 

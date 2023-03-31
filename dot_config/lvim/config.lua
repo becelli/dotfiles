@@ -3,13 +3,12 @@ vim.opt.shiftwidth = 2
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.wrap = true
--- lvim.format_on_save = true
+lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 lvim.keys.normal_mode["<S-h>"] = ":bprev<cr>"
--- lvim.keys.normal_mode["<S-Tab>"] = ":bprev<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":bnext<cr>"
 lvim.keys.normal_mode["|"] = ":vsplit<CR>"
 lvim.keys.normal_mode["-"] = ":split<CR>"
@@ -63,7 +62,7 @@ lvim.plugins = {
   -- { "nvim-telescope/telescope-z.nvim" },
   -- { "nvim-telescope/telescope-cheat.nvim" },
   -- { "nvim-telescope/telescope-ghq.nvim" },
-  -- { "ellisonleao/gruvbox.nvim" },
+  { "ellisonleao/gruvbox.nvim" },
   -- { "p00f/nvim-ts-rainbow" },
   -- { "rmehri01/onenord.nvim" },
   -- { "sainnhe/everforest" },
@@ -89,13 +88,11 @@ formatters.setup {
   { command = "stylua" },
   {
     command = "prettier",
-    extra_args = { "--print-width", "120" },
     filetypes = { "typescript", "typescriptreact" },
   },
   {
     command = "black",
     filetypes = { "python" },
-    extra_args = { "--line-length", "79" },
   }
 }
 local linters = require "lvim.lsp.null-ls.linters"
