@@ -177,28 +177,18 @@ bar {
   position top
   tray_output primary
   tray_padding 2
-  #separator_symbol "|"
+  separator_symbol "|"
   status_command i3status
   #status_command ~/.config/i3/weather.sh
   colors {
-        # bar background color
         background $bg
-        # text color used for blocks that do not have a color specified.
         statusline $yellow
-        # workspaces section            
-        #                    border  backgr. text
         focused_workspace    $aqua $aqua $darkgray
         inactive_workspace   $darkgray $darkgray $yellow
         active_workspace     $darkgray $darkgray $yellow
         urgent_workspace     $red $red $bg
     }
 }
-#end of bar section
-
-#start of window title bars & borders section
-
-# green gruvbox
-# class                 border|backgr|text|indicator|child_border
 client.focused          $green $green $darkgray $purple $darkgray
 client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
@@ -230,8 +220,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 
 # Gaps, colors and borders
-gaps inner 0
-default_border pixel 1
+gaps inner 12
+default_border pixel 2
 default_floating_border pixel 1
 hide_edge_borders none
 bindsym $mod+plus gaps inner all plus 5
