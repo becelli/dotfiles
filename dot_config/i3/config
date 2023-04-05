@@ -8,15 +8,13 @@ exec nm-applet
 # Set the bluetooth applet
 exec --no-startup-id blueman-applet
 # Clipboard manager
-exec diodon
+exec --no-startup-id diodon
 # Keyboard indicator
-exec gxkb
+exec --no-startup-id gxkb
 # OneDrive Sync
-exec onedrivegui
+exec --no-startup-id onedrivegui
 exec_always setxkbmap -layout us,br -option 'grp:win_space_toggle'
 # Setup the displays
-# exec_always xrandr --output eDP-1 --auto --primary --left-of HDMI-1-0 --auto
-#exec_always xrandr --output eDP-1-1 --primary --auto --left-of HDMI-0 --auto
 exec_always feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
 # Enable mouse moving floating windowspowermenu
 
@@ -36,9 +34,9 @@ set $news "kitty -e newsboat"
 set $bible "kitty -e kjvb"
 #set $powermenu "$HOME/.config/scripts/rofi-power-menu"
 set $file_manager "kitty -e lf"
-set $alsa_mix "kitty -e alsamixer"
+set $alsa_mix "kitty -e pulsemixer"
 set $mail "kitty -e neomutt"
-set $calendar $browser "https://calendar.google.com"
+set $calendar "/usr/bin/defaultbrowser https://calendar.google.com"
 set $screenshot "flatpak run org.flameshot.Flameshot gui"
 set $journal "kitty -e 'journalctl -f'"
 set $networks "kitty -e nmtui"
