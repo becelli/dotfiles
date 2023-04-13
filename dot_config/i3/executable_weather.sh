@@ -1,12 +1,31 @@
 #!/bin/sh
 
-i3status | (read -r line && echo "$line" && read -r line && echo "$line" && read -r line && echo "$line" && while :; do
-  read -r line
-  # status=$(cat ~/.weather.cache | head -n 3 | tail -n 1 | cut -c 16- | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-#  status=$(cat ~/.weather.cache | head  # Remove the "Pomodoro word and substitute with a 🍅"
-  pomodoro=$(i3-gnome-pomodoro status | sed 's/Pomodoro/🍅/g')
+# Read the first three lines of i3status and print them out
+i3status | (
+    read line && echo "$line"
+    read line && echo "$line"
+    read line && echo "$line"
 
-  # print both weather and pomodoro
- echo ",[{\"full_text\":\"${status}\",\"color\":\"#FFFFFF\" },${line#,\[}" || exit 1
+    # Continuously read the i3status output line by line and add weather and pomodoro information to it
+    while true; do
+        read line
 
-done)
+        # Get weather information from a cache file and format it
+        weather_input=$(cat ~/.weather.cache | cut -d ':' -f 2)
+        temperature=$(echo $weather_input | cut -d ' ' -f 2)
+        wind_speed=$(echo $weather_input | cut -d ' ' -f 3)
+        weather="$temperature | $wind_speed"
+
+        # Get pomodoro status and format it
+        pomodoro_input=$(i3-gnome-pomodoro status | cut -d ' ' -f 2)
+        if [ "$pomodoro_input" = "" ]; then
+            pomodoro="🍅 00:00"
+        else
+            pomodoro="🍅 $pomodoro_input"
+        fi
+
+        # Concatenate weather and pomodoro information and add it to the i3status output
+        concatenation="$pomodoro |$weather"
+        echo ",[{\"full_text\":\"$concatenation\" },${line#,\[}" || exit 1
+    done
+)

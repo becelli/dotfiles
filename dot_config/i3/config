@@ -177,34 +177,29 @@ bar {
   tray_padding 2
   separator_symbol "|"
   status_command i3status
-  #status_command ~/.config/i3/weather.sh
+  status_command ~/.config/i3/weather.sh
+
   colors {
-        background $bg
-        statusline $yellow
+        background           $bg
+        statusline           $yellow
+        separator            $yellow
         focused_workspace    $aqua $aqua $darkgray
         inactive_workspace   $darkgray $darkgray $yellow
         active_workspace     $darkgray $darkgray $yellow
         urgent_workspace     $red $red $bg
     }
 }
-client.focused          $green $green $darkgray $purple $darkgray
+# <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
+client.focused          $green $green $darkgray $purple $green
 client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $white $red $red
+client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
+client.background       $darkgray $darkgray $yellow $purple $darkgray
 
 
-# show calculator
 
-# reduce volume
-
-#bindsym $mod+F5 exec i3-sensible-terminal -e 'mocp'
-
-# bindsym Print exec flatpak run org.flameshot.Flameshot gui
-# bindsym Print exec flatpak run org.flameshot.Flameshot gui
-
-# # Mute microphone on <Mod> + Shift + A
-#bindsym $mod+Shift+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
@@ -220,12 +215,11 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 # Gaps, colors and borders
 gaps inner 12
 default_border pixel 2
-default_floating_border pixel 1
+default_floating_border pixel 2
 hide_edge_borders none
 bindsym $mod+plus gaps inner all plus 5
 bindsym $mod+minus gaps inner all minus 5
-smart_gaps on
-new_window pixel 2
+# smart_gaps on
 new_float pixel 2
 # kill the focused window
 bindsym $mod+Shift+q kill
