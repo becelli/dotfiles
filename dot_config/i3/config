@@ -5,6 +5,7 @@ set $mod Mod4
 exec redshift -l -21.9584:-51.317 
 # Set the network manager applet
 exec nm-applet
+exec onedrivegui
 # Set the bluetooth applet
 exec --no-startup-id blueman-applet
 # Clipboard manager
