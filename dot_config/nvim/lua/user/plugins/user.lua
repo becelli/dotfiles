@@ -6,4 +6,6 @@ return {
       vim.g.gruvbox_flat_style = "hard"
     end,
   },
+  { 'rose-pine/neovim' },
+  { 'navarasu/onedark.nvim' }
 }

@@ -26,6 +26,11 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.pack.go" },
-  -- { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.colorscheme.nightfox" },
+  { import = "astrocommunity.colorscheme.kanagawa"},
+  { import = "astrocommunity.colorscheme.rose-pine" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.onigiri" }
 }

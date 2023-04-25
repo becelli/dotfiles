@@ -38,7 +38,7 @@ set $file_manager "kitty -e lf"
 set $alsa_mix "kitty -e alsamixer"
 set $mail "kitty -e neomutt"
 set $calendar $browser "https://calendar.google.com"
-set $screenshot "flatpak run org.flameshot.Flameshot gui"
+set $screenshot "flameshot gui"
 set $journal "kitty -e 'journalctl -f'"
 set $networks "kitty -e nmtui"
 set $calculator "rofi -show calc -modi calc -no-show-match -no-sort"
@@ -125,6 +125,7 @@ bindsym $mod+Shift+l move right 100 px
 # Toggle modes
 bindsym $mod+Shift+f floating toggle
 bindsym $mod+t layout toggle tabbed splith splitv
+bindsym $mod+Shift+p sticky toggle
 # Change container layout
 # tabbed, stacked, splitv, splith
 bindsym $mod+Shift+s layout stacking
