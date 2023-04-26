@@ -12,16 +12,16 @@ exec --no-startup-id blueman-applet
 exec diodon
 # Keyboard indicator
 exec gxkb
-exec_always setxkbmap -layout us,br -option 'grp:win_space_toggle'
 # Setup the displays
-# exec_always xrandr --output eDP-1 --auto --primary --left-of HDMI-1-0 --auto
-#exec_always xrandr --output eDP-1-1 --primary --auto --left-of HDMI-0 --auto
 exec_always feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
 # Enable mouse moving floating windowspowermenu
 
 ########################
 # Default applications #
 ########################
+
+bindsym $mod+Shift+b exec setxkbmap br
+bindsym $mod+Shift+u exec setxkbmap us
 
 
 set $tasks "kitty -e htop"
