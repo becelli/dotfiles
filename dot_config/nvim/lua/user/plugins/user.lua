@@ -6,6 +6,22 @@ return {
       vim.g.gruvbox_flat_style = "hard"
     end,
   },
-  { 'rose-pine/neovim' },
-  { 'navarasu/onedark.nvim' }
+  {
+    "aserowy/tmux.nvim",
+    config = function()
+      require("tmux").setup({
+        copy_sync = {
+          enable = true,
+          redirect_to_clipboard = true,
+          sync_clipboard = true,
+        },
+        navigation = {
+          enable_default_keybindings = true,
+        },
+        resize = {
+          enable_default_keybindings = true,
+        },
+      })
+    end,
+  }
 }

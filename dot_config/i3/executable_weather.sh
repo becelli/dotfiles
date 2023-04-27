@@ -11,10 +11,10 @@ i3status | (
         read line
 
         # Get weather information from a cache file and format it
-        weather_input=$(cat ~/.weather.cache | cut -d ':' -f 2)
-        temperature=$(echo $weather_input | cut -d ' ' -f 2)
-        wind_speed=$(echo $weather_input | cut -d ' ' -f 3)
-        weather="$temperature | $wind_speed"
+        # weather_input=$(cat ~/.weather.cache | cut -d ':' -f 2)
+        # temperature=$(echo $weather_input | cut -d ' ' -f 2)
+        # wind_speed=$(echo $weather_input | cut -d ' ' -f 3)
+        # weather="$temperature | $wind_speed"
 
         # Get pomodoro status and format it
         pomodoro_input=$(i3-gnome-pomodoro status | cut -d ' ' -f 2)
@@ -25,7 +25,7 @@ i3status | (
         fi
 
         # Concatenate weather and pomodoro information and add it to the i3status output
-        concatenation="$pomodoro |$weather"
-        echo ",[{\"full_text\":\"$concatenation\" },${line#,\[}" || exit 1
+        # concatenation="$pomodoro |$weather"
+        echo ",[{\"full_text\":\"$pomodoro\" },${line#,\[}" || exit
     done
 )

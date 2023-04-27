@@ -149,10 +149,10 @@ bindsym $mod+Shift+r restart
 
 bindsym $mod+r mode "resize"
 mode "resize" {
-  bindsym h resize shrink width 10 px or 10 ppt
-  bindsym j resize grow height 10 px or 10 ppt
-  bindsym k resize shrink height 10 px or 10 ppt
-  bindsym l resize grow width 10 px or 10 ppt  
+  bindsym h resize shrink width 7 px or 7 ppt
+  bindsym j resize grow height 7 px or 7 ppt
+  bindsym k resize shrink height 7 px or 7 ppt
+  bindsym l resize grow width 7 px or 7 ppt  
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
@@ -215,13 +215,13 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 
 # Gaps, colors and borders
-gaps inner 12
+gaps inner 10
 default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders none
 bindsym $mod+plus gaps inner all plus 5
 bindsym $mod+minus gaps inner all minus 5
-# smart_gaps on
+smart_gaps on
 new_float pixel 2
 # kill the focused window
 bindsym $mod+Shift+q kill
