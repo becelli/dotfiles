@@ -18,8 +18,6 @@ return {
   },
   -- Set colorscheme to use
   colorscheme = "gruvbox-flat",
-  -- colorscheme = "rose-pine",
-  -- colorscheme = "catppuccin",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
