@@ -1,7 +1,6 @@
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.colorscheme.gruvbox" },
-  { import = "astrocommunity.completion.copilot-lua" },
+  -- { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.bars-and-lines.heirline-mode-text-statusline/" },

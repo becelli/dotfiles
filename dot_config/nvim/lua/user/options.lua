@@ -7,6 +7,15 @@ return {
     spell = false,         -- sets vim.opt.spell
     signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
     wrap = true,           -- sets vim.opt.wrap
+    conceallevel = 2,      -- enable conceal
+    list = true,           -- show whitespace characters
+    listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+    showbreak = "↪ ",
+    showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1,
+    spellfile = vim.fn.expand "~/.config/nvim/lua/user/spell/en.utf-8.add",
+    swapfile = false,
+    thesaurus = vim.fn.expand "~/.config/nvim/lua/user/spell/mthesaur.txt",
+    wrap = true, -- soft wrap lines
   },
   g = {
     mapleader = " ",                 -- sets vim.g.mapleader
@@ -16,7 +25,9 @@ return {
     diagnostics_mode = 3,            -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
     icons_enabled = true,            -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
     ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+    resession_enabled = true,
   },
+
 }
 -- If you need more control, you can use the function()...end notation
 -- return function(local_vim)
