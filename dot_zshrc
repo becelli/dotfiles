@@ -48,9 +48,7 @@ alias compress70="mogrify -path . *.jpg -resize 900 -quality 70 *.jpg"
 alias compress70png="mogrify -path . *.png -resize 900 -quality 70 *.jpg"
 alias compress100="mogrify -path . *.jpg -resize 1200 -quality 100 *.jpg"
 
-# export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
-# export ANDROID_HOME="$HOME/Android/Sdk"
-# export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-# export PATH="$JAVA_HOME/bin:$PATH"
-# export PATH="$HOME/.cargo/bin:$PATH"
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 
