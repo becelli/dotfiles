@@ -1,17 +1,17 @@
 set $mod Mod4
 ###### Run on startup
-#exec picom --config ~/.config/picom/picom.conf 
+# exec --no-startup-id picom 
 # Set the redshift (night mode)
-exec redshift -l -21.9584:-51.317 
+exec --no-startup-id redshift -l -21.9584:-51.317 
 # Set the network manager applet
-exec nm-applet
-exec onedrivegui
+exec --no-startup-id nm-applet
+#exec --no-startup-id onedrivegui
 # Set the bluetooth applet
 exec --no-startup-id blueman-applet
 # Clipboard manager
-exec diodon
+exec --no-startup-id diodon
 # Keyboard indicator
-exec gxkb
+exec --no-startup-id gxkb
 # Setup the displays
 exec_always feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
 # Enable mouse moving floating windowspowermenu
@@ -37,7 +37,6 @@ set $bible "kitty -e kjvb"
 set $file_manager "kitty -e lf"
 set $alsa_mix "kitty -e alsamixer"
 set $mail "kitty -e neomutt"
-set $calendar $browser "https://calendar.google.com"
 set $screenshot "flameshot gui"
 set $journal "kitty -e 'journalctl -f'"
 set $networks "kitty -e nmtui"
@@ -45,10 +44,7 @@ set $calculator "rofi -show calc -modi calc -no-show-match -no-sort"
 
 # calculator
 bindsym $mod+Shift+c exec $calculator
-bindsym $mod+c exec $calendar
 bindsym $mod+w exec $browser
-
-# bindsym $mod+Shift+w exec $networks
 bindsym $mod+q exec $tasks
 bindsym $mod+n exec $news
 bindsym $mod+b exec $bible
@@ -58,7 +54,6 @@ bindsym $mod+m exec $mail
 bindsym $mod+Shift+m exec $journal
 bindsym $mod+x exec $tasks
 bindsym $mod+Return exec $terminal_path
-#bindsym $mod+Shift+p exec $powermenu
 bindsym $mod+Shift+x exec $screenshot
 bindsym $mod+Shift+n exec $networks
 bindsym Print exec $screenshot
@@ -117,10 +112,10 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+Shift+h move left 100 px
-bindsym $mod+Shift+j move down 100 px
-bindsym $mod+Shift+k move up 100 px
-bindsym $mod+Shift+l move right 100 px
+bindsym $mod+Shift+h move left 70 px
+bindsym $mod+Shift+j move down 70 px
+bindsym $mod+Shift+k move up 70 px
+bindsym $mod+Shift+l move right 70 px
 
 # Toggle modes
 bindsym $mod+Shift+f floating toggle
@@ -160,19 +155,50 @@ popup_during_fullscreen smart
 focus_follows_mouse yes
 
 
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
+# set $bg #282828
+# set $red #cc241d
+# set $green #98971a
+# set $yellow #d79921
+# set $blue #458588
+# set $purple #b16286
+# set $aqua #689d68
+# set $gray #a89984
+# set $darkgray #1d2021
 ########################
 # Bar
 ########################
-font pango:FantasqueSansMono Nerd Font 12
+font pango:JetBrainsMono NF 10
+
+############# Gruvbox
+# bar {
+#   position top
+#   tray_output primary
+#   tray_padding 2
+#   separator_symbol "|"
+#   status_command i3status
+#   status_command ~/.config/i3/weather.sh
+
+  # colors {
+  #       background           $bg
+  #       statusline           $yellow
+  #       separator            $yellow
+  #       focused_workspace    $aqua $aqua $darkgray
+  #       inactive_workspace   $darkgray $darkgray $yellow
+  #       active_workspace     $darkgray $darkgray $yellow
+  #       urgent_workspace     $red $red $bg
+  #   }
+# }
+# <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
+# client.focused          $green $green $darkgray $purple $green
+# client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+# client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+# client.urgent           $red $red $white $red $red
+# client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
+# client.background       $darkgray $darkgray $yellow $purple $darkgray
+
+
+## Dracula
+
 bar {
   position top
   tray_output primary
@@ -182,22 +208,26 @@ bar {
   status_command ~/.config/i3/weather.sh
 
   colors {
-        background           $bg
-        statusline           $yellow
-        separator            $yellow
-        focused_workspace    $aqua $aqua $darkgray
-        inactive_workspace   $darkgray $darkgray $yellow
-        active_workspace     $darkgray $darkgray $yellow
-        urgent_workspace     $red $red $bg
-    }
+    background #282A36
+    statusline #F8F8F2
+    separator  #44475A
+
+    focused_workspace  #44475A #44475A #F8F8F2
+    active_workspace   #282A36 #44475A #F8F8F2
+    inactive_workspace #282A36 #282A36 #BFBFBF
+    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    binding_mode       #FF5555 #FF5555 #F8F8F2
+  }
 }
-# <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
-client.focused          $green $green $darkgray $purple $green
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
-client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
-client.background       $darkgray $darkgray $yellow $purple $darkgray
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
 
 
 
@@ -211,11 +241,8 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
-
-
-
 # Gaps, colors and borders
-gaps inner 10
+gaps inner 7
 default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders none
@@ -223,7 +250,5 @@ bindsym $mod+plus gaps inner all plus 5
 bindsym $mod+minus gaps inner all minus 5
 smart_gaps on
 new_float pixel 2
-# kill the focused window
 bindsym $mod+Shift+q kill
-
 for_window [urgent=latest] focus

@@ -1,11 +1,17 @@
 general {
 	output_format = "i3bar"
-        colors = false
-	interval = 1
+	interval = 5
 	# color_good = "#989898"
 	# color_degraded = "#8c7f22"
 	# color_bad = "#be2422"
+        
+        # dracula
+        colors = true
+        color_good = "#50FA7B"
+        color_degraded = "#F1FA8C"
+        color_bad = "#FF5555"
 }
+
 
 # order += "read_file BRIGHTNESS"
 order += "load"
@@ -71,7 +77,7 @@ battery all {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%Y-%m-%d %H:%M"
 }
 
 load {
