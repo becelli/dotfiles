@@ -1,5 +1,6 @@
 [global]
-    font = "JetBrainsMono NF 11"
+    #font = "JetBrainsMono NF 11"
+    font = "FantasqueSansMono NF 12"
     allow_markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes

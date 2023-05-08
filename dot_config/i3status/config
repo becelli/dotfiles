@@ -1,15 +1,17 @@
 general {
 	output_format = "i3bar"
-	interval = 5
-	# color_good = "#989898"
-	# color_degraded = "#8c7f22"
-	# color_bad = "#be2422"
+        colors = true
+
+        #gruvbox
+	interval = 1
+	color_good = "#88a828"
+	color_degraded = "#d7af5f"
+	color_bad = "#d75f5f"
         
         # dracula
-        colors = true
-        color_good = "#50FA7B"
-        color_degraded = "#F1FA8C"
-        color_bad = "#FF5555"
+        # color_good = "#50FA7B"
+        # color_degraded = "#F1FA8C"
+        # color_bad = "#FF5555"
 }
 
 
@@ -77,7 +79,7 @@ battery all {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M"
+        format = "%Y-%m-%d %H:%M:%S"
 }
 
 load {

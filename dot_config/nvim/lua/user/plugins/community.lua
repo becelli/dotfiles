@@ -1,6 +1,6 @@
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.colorscheme.dracula" },
+  -- { import = "astrocommunity.colorscheme.dracula" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.color.tint-nvim" },
   -- { import = "astrocommunity.bars-and-lines.heirline-mode-text-statusline/" },

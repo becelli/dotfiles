@@ -18,9 +18,9 @@ return {
   },
 
   -- Set colorscheme to use
-  -- colorscheme = "gruvbox-flat",
+  colorscheme = "gruvbox-flat",
   -- colorscheme = "catppuccin",
-  colorscheme = "dracula",
+  -- colorscheme = "dracula",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,

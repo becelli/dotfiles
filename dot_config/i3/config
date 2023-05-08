@@ -155,49 +155,23 @@ popup_during_fullscreen smart
 focus_follows_mouse yes
 
 
-# set $bg #282828
-# set $red #cc241d
-# set $green #98971a
-# set $yellow #d79921
-# set $blue #458588
-# set $purple #b16286
-# set $aqua #689d68
-# set $gray #a89984
-# set $darkgray #1d2021
+
 ########################
 # Bar
 ########################
-font pango:JetBrainsMono NF 10
+font pango:FantasqueSansMono NF 12
+#font pango:JetBrainsMono NF 10
 
 ############# Gruvbox
-# bar {
-#   position top
-#   tray_output primary
-#   tray_padding 2
-#   separator_symbol "|"
-#   status_command i3status
-#   status_command ~/.config/i3/weather.sh
-
-  # colors {
-  #       background           $bg
-  #       statusline           $yellow
-  #       separator            $yellow
-  #       focused_workspace    $aqua $aqua $darkgray
-  #       inactive_workspace   $darkgray $darkgray $yellow
-  #       active_workspace     $darkgray $darkgray $yellow
-  #       urgent_workspace     $red $red $bg
-  #   }
-# }
-# <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
-# client.focused          $green $green $darkgray $purple $green
-# client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-# client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-# client.urgent           $red $red $white $red $red
-# client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
-# client.background       $darkgray $darkgray $yellow $purple $darkgray
-
-
-## Dracula
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
 
 bar {
   position top
@@ -208,26 +182,55 @@ bar {
   status_command ~/.config/i3/weather.sh
 
   colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
-
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #FF5555 #FF5555 #F8F8F2
-  }
+        background           $bg
+        statusline           $yellow
+        separator            $yellow
+        focused_workspace    $aqua $aqua $darkgray
+        inactive_workspace   $darkgray $darkgray $yellow
+        active_workspace     $darkgray $darkgray $yellow
+        urgent_workspace     $red $red $bg
+    }
 }
+# <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
+client.focused          $green $green $darkgray $purple $green
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
+client.background       $darkgray $darkgray $yellow $purple $darkgray
 
-# class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-client.background       #F8F8F2
+## Dracula
+
+# bar {
+#   position top
+#   tray_output primary
+#   tray_padding 2
+#   separator_symbol "|"
+#   status_command i3status
+#   status_command ~/.config/i3/weather.sh
+
+#   colors {
+#     background #282A36
+#     statusline #F8F8F2
+#     separator  #44475A
+
+#     focused_workspace  #44475A #44475A #F8F8F2
+#     active_workspace   #282A36 #44475A #F8F8F2
+#     inactive_workspace #282A36 #282A36 #BFBFBF
+#     urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#     binding_mode       #FF5555 #FF5555 #F8F8F2
+#   }
+# }
+
+# # class                 border  bground text    indicator child_border
+# client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+# client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+# client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+# client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+# client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+# client.background       #F8F8F2
 
 
 
