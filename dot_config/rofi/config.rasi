@@ -126,7 +126,7 @@ element-text, element-icon {
 //@theme "/usr/share/rofi/themes/dmenu.rasi"
 
 * {
-    font: "FantasqueSansMono NF 10";
+    font: "JetBrainsMono NF 10";
 }
 
 */
