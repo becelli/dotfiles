@@ -35,7 +35,7 @@ set $news "kitty -e newsboat"
 set $bible "kitty -e kjvb"
 #set $powermenu "$HOME/.config/scripts/rofi-power-menu"
 set $file_manager "kitty -e lf"
-set $alsa_mix "kitty -e alsamixer"
+set $pulsemixer "kitty -e pulsemixer"
 set $mail "kitty -e neomutt"
 set $screenshot "flameshot gui"
 set $journal "kitty -e 'journalctl -f'"
@@ -48,7 +48,7 @@ bindsym $mod+w exec $browser
 bindsym $mod+q exec $tasks
 bindsym $mod+n exec $news
 bindsym $mod+b exec $bible
-bindsym $mod+p exec $alsa_mix
+bindsym $mod+p exec $pulsemixer
 bindsym $mod+o exec $file_manager
 bindsym $mod+m exec $mail
 bindsym $mod+Shift+m exec $journal
