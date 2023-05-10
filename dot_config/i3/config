@@ -255,3 +255,16 @@ smart_gaps on
 new_float pixel 2
 bindsym $mod+Shift+q kill
 for_window [urgent=latest] focus
+
+# Make Android Emulator - device_name floating
+for_window [class="Emulator"] floating enable
+for_window [class="Android Emulator - pixel3:5554"] floating enable
+# scrcpy
+for_window [class="scrcpy"] floating enable
+# Android Studio
+for_window [class="jetbrains-studio"] floating enable
+# Firefox
+# authy desktop go to the right center
+for_window [class="Authy Desktop"] floating enable, move right 400 px, move down 0 px
+
+
