@@ -1,13 +1,16 @@
 return {
   "AstroNvim/astrocommunity",
-  -- { import = "astrocommunity.colorscheme.dracula" },
-  { import = "astrocommunity.colorscheme.gruvbox-baby" },
-  -- { import = "astrocommunity.colorscheme.catppuccin" },
-  -- { import = "astrocommunity.colorscheme.kanagawa" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.color.tint-nvim" },
-  { import = "astrocommunity.color.headlines-nvim" },
-  { import = "astrocommunity.bars-and-lines.heirline-mode-text-statusline/" },
+  { import = "astrocommunity.completion.codeium-vim" },
+  -- { import = "astrocommunity.color.tint-nvim" }, -- dims the inactive window
+  { import = "astrocommunity.color.headlines-nvim" }, -- Markdown headlines (like emacs org-mode)
+  { import = "astrocommunity.color.ccc-nvim" }, -- hex color editor <leader>uC
+  { import = "astrocommunity.color.modes-nvim" }, -- paints the line for insert, block, lines and delete mode
+  { import = "astrocommunity.color.twilight-nvim" }, -- paints the line for insert, block, lines and delete mode
+  { import = "astrocommunity.bars-and-lines.heirline-vscode-winbar" }, -- path on the winbar (under the tabs)
+  { import = "astrocommunity.bars-and-lines.heirline-mode-text-statusline" },
+  -- { import = "astrocommunity.bars-and-lines.statuscol-nvim" },
+  { import = "astrocommunity.bars-and-lines.scope-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
