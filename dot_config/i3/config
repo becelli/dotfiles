@@ -5,6 +5,8 @@ set $mod Mod4
 exec --no-startup-id redshift -l -21.9584:-51.317 
 # Set the network manager applet
 exec --no-startup-id nm-applet
+exec --no-startup-id nm-tray
+
 #exec --no-startup-id onedrivegui
 # Set the bluetooth applet
 exec --no-startup-id blueman-applet
@@ -14,8 +16,7 @@ exec --no-startup-id diodon
 exec --no-startup-id gxkb
 # Setup the displays
 exec_always feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
-# Enable mouse moving floating windowspowermenu
-
+exec_always --no-startup-id ~/.config/i3/scripts/gnome-keyring.sh
 ########################
 # Default applications #
 ########################
@@ -24,22 +25,22 @@ bindsym $mod+Shift+b exec setxkbmap br
 bindsym $mod+Shift+u exec setxkbmap us
 
 
-set $tasks "kitty -e htop"
+set $tasks "alacritty -e htop"
 set $locker "i3lock -i ~/Pictures/wallpapers/i3-lock.png"
 set $suspeder "i3lock -i ~/Pictures/wallpapers/i3-lock.png && systemctl suspend"
 set $browser "/usr/bin/defaultbrowser"
-set $terminal_path /usr/bin/kitty
+set $terminal_path /usr/bin/alacritty
 set $menu rofi -show drun -show-icons
 set $windows rofi -show window -show-icons
-set $news "kitty -e newsboat"
-set $bible "kitty -e kjvb"
+set $news "alacritty -e newsboat"
+set $bible "alacritty -e kjvb"
 #set $powermenu "$HOME/.config/scripts/rofi-power-menu"
-set $file_manager "kitty -e lf"
-set $pulsemixer "kitty -e pulsemixer"
-set $mail "kitty -e neomutt"
+set $file_manager "alacritty -e lf"
+set $pulsemixer "alacritty -e pulsemixer"
+set $mail "alacritty -e neomutt"
 set $screenshot "flameshot gui"
-set $journal "kitty -e 'journalctl -f'"
-set $networks "kitty -e nmtui"
+set $journal "alacritty -e 'journalctl -f'"
+set $networks "alacritty -e nmtui"
 set $calculator "rofi -show calc -modi calc -no-show-match -no-sort"
 
 # calculator
@@ -159,46 +160,67 @@ focus_follows_mouse yes
 ########################
 # Bar
 ########################
-font pango:FantasqueSansMono NF 12
+font pango:JetBrainsMono Nerd Font 12
 #font pango:JetBrainsMono NF 10
 
 ############# Gruvbox
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
+# set $bg #282828
+# set $red #cc241d
+# set $green #98971a
+# set $yellow #d79921
+# set $blue #458588
+# set $purple #b16286
+# set $aqua #689d68
+# set $gray #a89984
+# set $darkgray #1d2021
+#
+# bar {
+#   position top
+#   tray_output primary
+#   tray_padding 2
+#   separator_symbol "|"
+#   # status_command i3status
+#   # status_command ~/.config/i3/weather.sh
+#
+#   colors {
+#         background           $bg
+#         statusline           $yellow
+#         separator            $yellow
+#         focused_workspace    $aqua $aqua $darkgray
+#         inactive_workspace   $darkgray $darkgray $yellow
+#         active_workspace     $darkgray $darkgray $yellow
+#         urgent_workspace     $red $red $bg
+#     }
+# }
+# # <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
+# client.focused          $green $green $darkgray $purple $green
+# client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+# client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+# client.urgent           $red $red $white $red $red
+# client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
+# client.background       $darkgray $darkgray $yellow $purple $darkgray
+
+### Catppuccin
+default_border pixel 1
+default_floating_border pixel 1
+
+# class                 border  backgr. text    indicator
+client.focused          #4C566A #4C566A #ffffff #4C566A
+client.unfocused        #2e3440 #1f222d #888888 #1f222d
+client.focused_inactive #2e3440 #1f222d #888888 #1f222d
+client.placeholder      #2e3440 #1f222d #888888 #1f222d
+client.urgent           #900000 #900000 #ffffff #900000
+
+client.background       #242424
 
 bar {
-  position top
-  tray_output primary
-  tray_padding 2
-  separator_symbol "|"
-  status_command i3status
-  status_command ~/.config/i3/weather.sh
-
-  colors {
-        background           $bg
-        statusline           $yellow
-        separator            $yellow
-        focused_workspace    $aqua $aqua $darkgray
-        inactive_workspace   $darkgray $darkgray $yellow
-        active_workspace     $darkgray $darkgray $yellow
-        urgent_workspace     $red $red $bg
-    }
+    position top
+    tray_output primary
+    tray_padding 2
+    separator_symbol "|"
+    status_command i3status
+    status_command ~/.config/i3/weather.sh
 }
-# <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
-client.focused          $green $green $darkgray $purple $green
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
-client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
-client.background       $darkgray $darkgray $yellow $purple $darkgray
-
 
 ## Dracula
 
@@ -260,11 +282,9 @@ for_window [urgent=latest] focus
 for_window [class="Emulator"] floating enable
 for_window [class="Android Emulator - pixel3:5554"] floating enable
 # scrcpy
-for_window [class="scrcpy"] floating enable
 # Android Studio
-for_window [class="jetbrains-studio"] floating enable
 # Firefox
 # authy desktop go to the right center
-for_window [class="Authy Desktop"] floating enable, move right 400 px, move down 0 px
+for_window [class="Authy Desktop"] floating enable, move right 600 px, move down 300 px
 
 
