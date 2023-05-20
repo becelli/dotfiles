@@ -34,6 +34,6 @@ return {
   { import = "astrocommunity.motion.leap-nvim" },
   -- { import = "astrocommunity.utility.transparent-nvim" },
   -- { import = "astrocommunity.motion.mini-move" },
-  -- { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   -- { import = "astrocommunity.markdown-and-latex.vimtex" },
 }
