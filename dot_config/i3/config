@@ -199,11 +199,11 @@ font pango:JetBrainsMono Nerd Font 10
 # client.background       $darkgray $darkgray $yellow $purple $darkgray
 
 ### Catppuccin
-default_border pixel 1
+default_border pixel 2
 default_floating_border pixel 1
 
 # class                 border  backgr. text    indicator
-client.focused          #4C566A #4C566A #ffffff #4C566A
+client.focused          #4C566A #f9e2af ffffff #4C566A
 client.unfocused        #2e3440 #1f222d #888888 #1f222d
 client.focused_inactive #2e3440 #1f222d #888888 #1f222d
 client.placeholder      #2e3440 #1f222d #888888 #1f222d
