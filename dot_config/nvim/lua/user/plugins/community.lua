@@ -10,8 +10,8 @@ return {
   { import = "astrocommunity.color.modes-nvim" }, -- paints the line for insert, block, lines and delete mode
   -- { import = "astrocommunity.color.twilight-nvim" }, -- paints the line for insert, block, lines and delete mode
   { import = "astrocommunity.bars-and-lines.heirline-vscode-winbar" }, -- path on the winbar (under the tabs)
-  -- { import = "astrocommunity.bars-and-lines.heirline-mode-text-statusline" },
-  -- { import = "astrocommunity.bars-and-lines.statuscol-nvim" },
+  { import = "astrocommunity.bars-and-lines.heirline-mode-text-statusline" }, -- show mode on the downbar
+  -- { import = "astrocommunity.bars-and-lines.statuscol-nvim" }, -- idk what it does
   -- { import = "astrocommunity.bars-and-lines.scope-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   -- { import = "astrocommunity.editing-support.neogen" },
