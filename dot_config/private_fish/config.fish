@@ -47,7 +47,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # ME
-source ~/.asdf/asdf.fish
+# source ~/.asdf/asdf.fish
 alias rungcc="gcc main.c -lm -o gcc && ./gcc"
 alias runclang="clang main.c -lm -o clang && ./clang"
 alias runmingw="x86_64-w64-mingw32-gcc main.c -lm -o mingw.exe && wine ./mingw.exe"
@@ -55,8 +55,10 @@ alias compress70="mogrify -path . *.jpg -resize 900 -quality 70 *.jpg"
 alias compress70png="mogrify -path . *.png -resize 900 -quality 70 *.jpg"
 alias compress100="mogrify -path . *.jpg -resize 1200 -quality 100 *.jpg"
 
-
-# set java home
-set -x JAVA_HOME (asdf where java)
 set -x ANDROID_HOME ~/Android/Sdk
 set -p PATH $ANDROID_HOME/platform-tools
+
+
+if test -f ~/.local/share/rtx/bin/rtx
+    ~/.local/share/rtx/bin/rtx activate -s fish | source
+end
