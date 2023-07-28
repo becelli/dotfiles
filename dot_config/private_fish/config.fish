@@ -59,6 +59,6 @@ set -x ANDROID_HOME ~/Android/Sdk
 set -p PATH $ANDROID_HOME/platform-tools
 
 
-if test -f ~/.local/share/rtx/bin/rtx
-    ~/.local/share/rtx/bin/rtx activate -s fish | source
+if test -f /usr/bin/rtx
+    /usr/bin/rtx activate -s fish | source
 end
