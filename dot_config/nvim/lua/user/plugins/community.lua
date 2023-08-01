@@ -3,6 +3,9 @@ return {
 
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
+  { import = "astrocommunity.git.git-blame-nvim" },
   -- { import = "astrocommunity.completion.codeium-vim" },
   -- { import = "astrocommunity.color.tint-nvim" }, -- dims the inactive window
   -- { import = "astrocommunity.color.headlines-nvim" }, -- Markdown headlines (like emacs org-mode)
@@ -29,7 +32,7 @@ return {
   { import = "astrocommunity.pack.markdown" },
   -- { import = "astrocommunity.pack.go" },
   -- { import = "astrocommunity.pack.json" },
-  { import = "astrocommunity.pack.java" },
+  -- { import = "astrocommunity.pack.java" },
   -- { import = "astrocommunity.motion.harpoon" },
   { import = "astrocommunity.motion.leap-nvim" },
   -- { import = "astrocommunity.utility.transparent-nvim" },

@@ -11,29 +11,30 @@ exec --no-startup-id blueman-applet
 # Clipboard manager
 exec --no-startup-id diodon
 # Keyboard indicator
-exec --no-startup-id gxkb
+# exec --no-startup-id gxkb
 # Setup the displays
-exec_always feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
-exec_always --no-startup-id ~/.config/i3/scripts/gnome-keyring.sh
+# exec_always feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
+# exec_always --no-startup-id ~/.config/i3/scripts/gnome-keyring.sh
 ########################
 # Default applications #
 ########################
 
-bindsym $mod+Shift+b exec setxkbmap br
-bindsym $mod+Shift+u exec setxkbmap us
+# bindsym $mod+Shift+b exec setxkbmap br
+# bindsym $mod+Shift+u exec setxkbmap us
 
 
 set $tasks "alacritty -e htop"
-set $locker "i3lock -i ~/Pictures/wallpapers/i3-lock.png"
-set $suspeder "i3lock -i ~/Pictures/wallpapers/i3-lock.png && systemctl suspend"
+set $locker "xdg-screensaver lock"
+set $suspeder "xdg-screensaver lock && systemctl suspend"
 set $browser "/usr/bin/defaultbrowser"
 set $terminal_path /usr/bin/alacritty
 set $menu rofi -show drun -show-icons
 set $windows rofi -show window -show-icons
 set $news "alacritty -e newsboat"
-set $bible "alacritty -e kjvb"
+# set $bible "alacritty -e kjvb"
 #set $powermenu "$HOME/.config/scripts/rofi-power-menu"
-set $file_manager "alacritty -e lf"
+# set $file_manager "alacritty -e lf"
+set $file_manager "nautilus"
 set $pulsemixer "alacritty -e pulsemixer"
 set $mail "alacritty -e neomutt"
 set $screenshot "flameshot gui"
@@ -44,16 +45,16 @@ set $calculator "rofi -show calc -modi calc -no-show-match -no-sort"
 # calculator
 bindsym $mod+Shift+c exec $calculator
 bindsym $mod+w exec $browser
-bindsym $mod+q exec $tasks
-bindsym $mod+n exec $news
-bindsym $mod+b exec $bible
+# bindsym $mod+q exec $tasks
+# bindsym $mod+n exec $news
+# bindsym $mod+b exec $bible
 bindsym $mod+p exec $pulsemixer
 bindsym $mod+o exec $file_manager
 bindsym $mod+m exec $mail
 bindsym $mod+Shift+m exec $journal
 bindsym $mod+x exec $tasks
 bindsym $mod+Return exec $terminal_path
-bindsym $mod+Shift+x exec $screenshot
+# bindsym $mod+Shift+x exec $screenshot
 bindsym $mod+Shift+n exec $networks
 bindsym Print exec $screenshot
 
@@ -158,7 +159,7 @@ focus_follows_mouse yes
 ########################
 # Bar
 ########################
-font pango:JetBrainsMono Nerd Font 10
+font pango:JetBrainsMono Nerd Font 11
 #font pango:JetBrainsMono NF 10
 
 ############# Gruvbox
@@ -265,8 +266,8 @@ bar {
 
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -275,9 +276,9 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 # Gaps, colors and borders
-gaps inner 7
-default_border pixel 2
-default_floating_border pixel 2
+# gaps inner 7
+default_border pixel 1
+default_floating_border pixel 1
 hide_edge_borders none
 bindsym $mod+plus gaps inner all plus 5
 bindsym $mod+minus gaps inner all minus 5

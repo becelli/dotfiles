@@ -1,5 +1,11 @@
 return {
 	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	},
+	{
 		"ray-x/lsp_signature.nvim",
 		event = "BufRead",
 		config = function()
@@ -26,10 +32,12 @@ return {
 			local cmp = require("cmp")
 			-- modify the sources part of the options table
 			opts.sources = cmp.config.sources({
-				{ name = "nvim_lsp", priority = 1000 },
+
+				{ name = "copilot", priority = 1000 },
+				{ name = "nvim_lsp", priority = 999 },
 				{ name = "luasnip", priority = 750 },
-				{ name = "buffer", priority = 300 },
-				{ name = "path", priority = 200 },
+				{ name = "path", priority = 500 },
+				{ name = "buffer", priority = 400 },
 				{ name = "emoji", priority = 300 },
 			})
 
@@ -48,16 +56,22 @@ return {
 			-- 	end,
 			-- }
 
+			local menu_icon = {
+				copilot = "",
+				nvim_lsp = "",
+				luasnip = "",
+				buffer = "",
+				path = "",
+				emoji = "󰞅",
+			}
 			opts.formatting = {
 				fields = { "menu", "abbr", "kind" },
 				format = function(entry, item)
-					local menu_icon = {
-						nvim_lsp = "",
-						luasnip = "",
-						buffer = "",
-						path = "",
-					}
 					item.menu = menu_icon[entry.source.name]
+
+					if entry.source.name == "nvim_lsp" then
+						item.kind = require("lspkind").presets.default[item.kind] .. " " .. item.kind
+					end
 					return item
 				end,
 			}
