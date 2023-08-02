@@ -6,13 +6,6 @@ return {
 		end,
 	},
 	{
-		"ray-x/lsp_signature.nvim",
-		event = "BufRead",
-		config = function()
-			require("lsp_signature").setup()
-		end,
-	},
-	{
 		"eddyekofo94/gruvbox-flat.nvim",
 		config = function()
 			-- vim.o.background = "dark"
@@ -24,6 +17,7 @@ return {
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-emoji", -- add cmp source as dependency of cmp
+			"zbirenbaum/copilot-cmp",
 		},
 		-- override the options table that is used in the `require("cmp").setup()` call
 		opts = function(_, opts)
@@ -71,7 +65,10 @@ return {
 
 					if entry.source.name == "nvim_lsp" then
 						item.kind = require("lspkind").presets.default[item.kind] .. " " .. item.kind
+					elseif entry.source.name == "copilot" then
+						item.kind = "" .. " " .. item.kind
 					end
+
 					return item
 				end,
 			}

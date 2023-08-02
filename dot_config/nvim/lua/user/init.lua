@@ -17,8 +17,8 @@ return {
 		},
 	},
 
-	colorscheme = "catppuccin",
-	-- colorscheme = "gruvbox-flat",
+	-- colorscheme = "catppuccin",
+	colorscheme = "gruvbox-flat",
 
 	-- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
 	diagnostics = {

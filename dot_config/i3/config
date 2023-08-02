@@ -163,73 +163,73 @@ font pango:JetBrainsMono Nerd Font 11
 #font pango:JetBrainsMono NF 10
 
 ############# Gruvbox
-# set $bg #282828
-# set $red #cc241d
-# set $green #98971a
-# set $yellow #d79921
-# set $blue #458588
-# set $purple #b16286
-# set $aqua #689d68
-# set $gray #a89984
-# set $darkgray #1d2021
-#
-# bar {
-#   position top
-#   tray_output primary
-#   tray_padding 2
-#   separator_symbol "|"
-#   # status_command i3status
-#   # status_command ~/.config/i3/weather.sh
-#
-#   colors {
-#         background           $bg
-#         statusline           $yellow
-#         separator            $yellow
-#         focused_workspace    $aqua $aqua $darkgray
-#         inactive_workspace   $darkgray $darkgray $yellow
-#         active_workspace     $darkgray $darkgray $yellow
-#         urgent_workspace     $red $red $bg
-#     }
-# }
-# # <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
-# client.focused          $green $green $darkgray $purple $green
-# client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-# client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-# client.urgent           $red $red $white $red $red
-# client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
-# client.background       $darkgray $darkgray $yellow $purple $darkgray
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+bar {
+  position top
+  tray_output primary
+  tray_padding 2
+  separator_symbol "|"
+  status_command i3status
+  status_command ~/.config/i3/weather.sh
+
+  colors {
+        background           $bg
+        statusline           $yellow
+        separator            $yellow
+        focused_workspace    $aqua $aqua $darkgray
+        inactive_workspace   $darkgray $darkgray $yellow
+        active_workspace     $darkgray $darkgray $yellow
+        urgent_workspace     $red $red $bg
+    }
+}
+# <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
+client.focused          $green $green $darkgray $purple $green
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
+client.background       $darkgray $darkgray $yellow $purple $darkgray
 
 ### Catppuccin
 default_border pixel 2
 default_floating_border pixel 1
 
 # class                 border  backgr. text    indicator
-client.focused          #4C566A #f9e2af #ffffff #4C566A
-client.unfocused        #2e3440 #1f222d #888888 #1f222d
-client.focused_inactive #2e3440 #1f222d #888888 #1f222d
-client.placeholder      #2e3440 #1f222d #888888 #1f222d
-client.urgent           #900000 #900000 #ffffff #900000
+# client.focused          #4C566A #f9e2af #1f222d #5C566A
+# client.unfocused        #2e3440 #1f222d #888888 #1f222d
+# client.focused_inactive #2e3440 #1f222d #888888 #1f222d
+# client.placeholder      #2e3440 #1f222d #888888 #1f222d
+# client.urgent           #900000 #900000 #ffffff #900000
+#
+# client.background       #242424
 
-client.background       #242424
-
-bar {
-    position top
-    tray_output primary
-    tray_padding 2
-    separator_symbol "|"
-    status_command i3status
-    status_command ~/.config/i3/weather.sh
-
-    colors {
-         background         #1e1e2e
-         statusline         #ffffff
-         separator          #ffffff
-         focused_workspace  #4C566A #4C566A #ffffff
-         inactive_workspace #2e3440 #2e3440 #888888
-         active_workspace   #2e3440 #2e3440 #ffffff
-         urgent_workspace   #900000 #900000 #ffffff
-     }
-}
+# bar {
+#     position top
+#     tray_output primary
+#     tray_padding 2
+#     separator_symbol "|"
+#     status_command i3status
+#     status_command ~/.config/i3/weather.sh
+#
+#     colors {
+#          background         #1e1e2e
+#          statusline         #ffffff
+#          separator          #ffffff
+#          focused_workspace  #4C566A #4C566A #ffffff
+#          inactive_workspace #2e3440 #2e3440 #888888
+#          active_workspace   #2e3440 #2e3440 #ffffff
+#          urgent_workspace   #900000 #900000 #ffffff
+#      }
+# }
 
 ## Dracula
 
