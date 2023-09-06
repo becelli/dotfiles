@@ -54,14 +54,14 @@ bindsym $mod+m exec $mail
 bindsym $mod+Shift+m exec $journal
 bindsym $mod+x exec $tasks
 bindsym $mod+Return exec $terminal_path
-# bindsym $mod+Shift+x exec $screenshot
+bindsym $mod+Shift+x exec $screenshot
 bindsym $mod+Shift+n exec $networks
 bindsym Print exec $screenshot
 
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+space exec $windows
 
-bindsym $mod+Escape exec $locker
+# bindsym $mod+Escape exec $locker
 bindsym $mod+Shift+Escape exec $suspeder
 ########################
 # Workspaces and layout
@@ -160,6 +160,7 @@ focus_follows_mouse yes
 # Bar
 ########################
 font pango:JetBrainsMono Nerd Font 11
+# font pango:Cantarell 11
 #font pango:JetBrainsMono NF 10
 
 ############# Gruvbox
@@ -174,30 +175,30 @@ set $gray #a89984
 set $darkgray #1d2021
 
 bar {
-  position top
-  tray_output primary
-  tray_padding 2
+  # position bottom
+  # tray_output primary
+  # tray_padding 2
   separator_symbol "|"
   status_command i3status
-  status_command ~/.config/i3/weather.sh
+  # status_command ~/.config/i3/weather.sh
 
-  colors {
-        background           $bg
-        statusline           $yellow
-        separator            $yellow
-        focused_workspace    $aqua $aqua $darkgray
-        inactive_workspace   $darkgray $darkgray $yellow
-        active_workspace     $darkgray $darkgray $yellow
-        urgent_workspace     $red $red $bg
-    }
+  # colors {
+  #       background           $bg
+  #       statusline           $yellow
+  #       separator            $yellow
+  #       focused_workspace    $aqua $aqua $darkgray
+  #       inactive_workspace   $darkgray $darkgray $yellow
+  #       active_workspace     $darkgray $darkgray $yellow
+  #       urgent_workspace     $red $red $bg
+  #   }
 }
 # <border_color> <background_color> <text_color> <indicator_color> <child_border_color>
-client.focused          $green $green $darkgray $purple $green
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
-client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
-client.background       $darkgray $darkgray $yellow $purple $darkgray
+# client.focused          $green $green $darkgray $purple $green
+# client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+# client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+# client.urgent           $red $red $white $red $red
+# client.placeholder      $darkgray $darkgray $yellow $purple $darkgray
+# client.background       $darkgray $darkgray $yellow $purple $darkgray
 
 ### Catppuccin
 default_border pixel 2
@@ -284,7 +285,9 @@ bindsym $mod+plus gaps inner all plus 5
 bindsym $mod+minus gaps inner all minus 5
 smart_gaps on
 new_float pixel 2
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+# alt + f4 (alt is not the $mod)
+# bindsym Mod1+F4 kill
 for_window [urgent=latest] focus
 
 # Make Android Emulator - device_name floating
