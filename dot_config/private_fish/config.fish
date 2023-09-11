@@ -62,3 +62,10 @@ set -p PATH $ANDROID_HOME/platform-tools
 if test -f /usr/bin/rtx
     /usr/bin/rtx activate -s fish | source
 end
+
+# add .cargo/bin to path
+if test -d ~/.cargo/bin
+    if not contains -- ~/.cargo/bin $PATH
+        set -p PATH ~/.cargo/bin
+    end
+end
