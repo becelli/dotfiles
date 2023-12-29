@@ -1,5 +1,5 @@
 # import:
-  # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+#   - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
@@ -10,6 +10,6 @@ env:
 font:
   size: 13
   normal:
-#     #family: FantasqueSansM Nerd Font
+    #family: FantasqueSansM Nerd Font
     family: JetBrainsMono Nerd Font
     style: Regular

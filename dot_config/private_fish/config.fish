@@ -13,11 +13,11 @@ end
 
 # Starship Prompt
 if status --is-interactive
-    if test -f "/usr/local/bin/starship"
-        source ("/usr/local/bin/starship" init fish --print-full-init | psub)
-    else if test -f "/usr/bin/starship"
-        source ("/usr/bin/starship" init fish --print-full-init | psub)
-    end
+   if test -f '/usr/local/bin/starship'
+       source ('/usr/local/bin/starship' init fish --print-full-init | psub)
+   else if test -f '/usr/bin/starship'
+       source ('/usr/bin/starship' init fish --print-full-init | psub)
+   end
 end
 
 # Fish command history. Show in reverse chronological order.
@@ -47,21 +47,21 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # ME
-# source ~/.asdf/asdf.fish
-alias rungcc="gcc main.c -lm -o gcc && ./gcc"
-alias runclang="clang main.c -lm -o clang && ./clang"
-alias runmingw="x86_64-w64-mingw32-gcc main.c -lm -o mingw.exe && wine ./mingw.exe"
-alias compress70="mogrify -path . *.jpg -resize 900 -quality 70 *.jpg"
-alias compress70png="mogrify -path . *.png -resize 900 -quality 70 *.jpg"
-alias compress100="mogrify -path . *.jpg -resize 1200 -quality 100 *.jpg"
+#alias rungcc="gcc main.c -lm -o gcc && ./gcc"
+#alias runclang="clang main.c -lm -o clang && ./clang"
+#alias runmingw="x86_64-w64-mingw32-gcc main.c -lm -o mingw.exe && wine ./mingw.exe"
+#alias compress70="mogrify -path . *.jpg -resize 900 -quality 70 *.jpg"
+#alias compress70png="mogrify -path . *.png -resize 900 -quality 70 *.jpg"
+#alias compress100="mogrify -path . *.jpg -resize 1200 -quality 100 *.jpg"
 
 set -x ANDROID_HOME ~/Android/Sdk
 set -p PATH $ANDROID_HOME/platform-tools
 
 
-if test -f /usr/bin/rtx
-    /usr/bin/rtx activate -s fish | source
-end
+source ~/.asdf/asdf.fish
+#if test -f /usr/bin/rtx
+#    /usr/bin/rtx activate -s fish | source
+#end
 
 # add .cargo/bin to path
 if test -d ~/.cargo/bin

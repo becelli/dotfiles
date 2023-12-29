@@ -13,7 +13,7 @@ exec --no-startup-id diodon
 # Keyboard indicator
 # exec --no-startup-id gxkb
 # Setup the displays
-# exec_always feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
+#exec_always feh --bg-fill ~/Imágenes/wallpapers/i3-wallpaper.png
 # exec_always --no-startup-id ~/.config/i3/scripts/gnome-keyring.sh
 ########################
 # Default applications #
@@ -44,7 +44,7 @@ set $calculator "rofi -show calc -modi calc -no-show-match -no-sort"
 
 # calculator
 bindsym $mod+Shift+c exec $calculator
-bindsym $mod+w exec $browser
+#bindsym $mod+w exec $browser
 # bindsym $mod+q exec $tasks
 # bindsym $mod+n exec $news
 # bindsym $mod+b exec $bible
@@ -55,11 +55,13 @@ bindsym $mod+Shift+m exec $journal
 bindsym $mod+x exec $tasks
 bindsym $mod+Return exec $terminal_path
 bindsym $mod+Shift+x exec $screenshot
+# bindsym $mod+t layout toggle tabbed splith splitv
+# bindsym $mod+Shift+p sticky toggle
 bindsym $mod+Shift+n exec $networks
 bindsym Print exec $screenshot
 
 bindsym $mod+d exec $menu
-bindsym $mod+Shift+space exec $windows
+#bindsym $mod+Shift+space exec $windows
 
 # bindsym $mod+Escape exec $locker
 bindsym $mod+Shift+Escape exec $suspeder
@@ -108,32 +110,34 @@ floating_modifier $mod
 ########################
 # Move windows
 
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-bindsym $mod+Shift+h move left 70 px
-bindsym $mod+Shift+j move down 70 px
-bindsym $mod+Shift+k move up 70 px
-bindsym $mod+Shift+l move right 70 px
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Left move left 70 px
+bindsym $mod+Shift+Down move down 70 px
+bindsym $mod+Shift+Up move up 70 px
+bindsym $mod+Shift+Right move right 70 px
+
+bindsym $mod+h split h
+bindsym $mod+v split v
 
 # Toggle modes
-bindsym $mod+Shift+f floating toggle
-bindsym $mod+t layout toggle tabbed splith splitv
-bindsym $mod+Shift+p sticky toggle
-# Change container layout
-# tabbed, stacked, splitv, splith
-bindsym $mod+Shift+s layout stacking
-# bindsym $mod+Shift+v layout splitv
-# bindsym $mod+Shift+h layout splith
-bindsym $mod+Shift+t layout tabbed
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+bindsym $mod+Shift+d focus child
 
 # Switch between normal and floating mode
-bindsym $mod+Shift+v focus mode_toggle
-# Cycle across workspaces
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+# bindsym $mod+Shift+v focus mode_toggle
+# Cycle across workspacee
+# bindsym $mod+Tab workspace next
+# bindsym $mod+Shift+Tab workspace prev
 
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+r restart
@@ -144,10 +148,10 @@ bindsym $mod+Shift+r restart
 
 bindsym $mod+r mode "resize"
 mode "resize" {
-  bindsym h resize shrink width 7 px or 7 ppt
-  bindsym j resize grow height 7 px or 7 ppt
-  bindsym k resize shrink height 7 px or 7 ppt
-  bindsym l resize grow width 7 px or 7 ppt  
+  bindsym Left resize shrink width 7 px or 7 ppt
+  bindsym Down resize grow height 7 px or 7 ppt
+  bindsym Up resize shrink height 7 px or 7 ppt
+  bindsym Right resize grow width 7 px or 7 ppt  
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
@@ -201,10 +205,10 @@ bar {
 # client.background       $darkgray $darkgray $yellow $purple $darkgray
 
 ### Catppuccin
-default_border pixel 2
-default_floating_border pixel 1
-
-# class                 border  backgr. text    indicator
+#default_border pixel 2
+#default_floating_border pixel 1
+#
+## class                 border  backgr. text    indicator
 # client.focused          #4C566A #f9e2af #1f222d #5C566A
 # client.unfocused        #2e3440 #1f222d #888888 #1f222d
 # client.focused_inactive #2e3440 #1f222d #888888 #1f222d
@@ -212,14 +216,14 @@ default_floating_border pixel 1
 # client.urgent           #900000 #900000 #ffffff #900000
 #
 # client.background       #242424
-
+#
 # bar {
-#     position top
+#     position bottom
 #     tray_output primary
 #     tray_padding 2
 #     separator_symbol "|"
 #     status_command i3status
-#     status_command ~/.config/i3/weather.sh
+#     # status_command ~/.config/i3/weather.sh
 #
 #     colors {
 #          background         #1e1e2e

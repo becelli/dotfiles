@@ -1,9 +1,9 @@
 general {
 	output_format = "i3bar"
         colors = false
+	interval = 5
 
         #gruvbox
-	interval = 1
 	color_good = "#88a828"
 	color_degraded = "#d7af5f"
 	color_bad = "#d75f5f"
@@ -19,12 +19,12 @@ general {
 order += "load"
 order += "cpu_usage"
 order += "memory"
-order += "disk /"
-order += "disk /home"
+#order += "disk /"
+#order += "disk /home"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
-#order += "volume master"
+order += "volume master"
 order += "tztime local"
 
 volume master {
@@ -56,13 +56,15 @@ cpu_usage {
 
 wireless _first_ {
 #        format_up = "🦆%quality at %essid at %bitrate"
-	format_up = "📡%quality at %essid"
+#	format_up = "📡%quality at %essid"
+	format_up = "📡 %essid"
         format_down = ""
 }
 
 ethernet _first_ {
 #        format_up = "E ️️️️️️%ip (%speed)"
 	format_up = "🔌 ️%ip"
+#	format_up = "%ip"
         format_down = ""
 }
 
