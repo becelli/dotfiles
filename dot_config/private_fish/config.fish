@@ -1,10 +1,9 @@
 set fish_greeting
-set VIRTUAL_ENV_DISABLE_PROMPT "1"
+set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level low
 
-# Add ~/.local/bin to PATH
 if test -d ~/.local/bin
     if not contains -- ~/.local/bin $PATH
         set -p PATH ~/.local/bin
@@ -13,11 +12,11 @@ end
 
 # Starship Prompt
 if status --is-interactive
-   if test -f '/usr/local/bin/starship'
-       source ('/usr/local/bin/starship' init fish --print-full-init | psub)
-   else if test -f '/usr/bin/starship'
-       source ('/usr/bin/starship' init fish --print-full-init | psub)
-   end
+    if test -f /usr/local/bin/starship
+        source ('/usr/local/bin/starship' init fish --print-full-init | psub)
+    else if test -f /usr/bin/starship
+        source ('/usr/bin/starship' init fish --print-full-init | psub)
+    end
 end
 
 # Fish command history. Show in reverse chronological order.
@@ -25,12 +24,11 @@ function history
     builtin history --show-time='%F %T $ ' --reverse
 end
 
-# Replace ls with exa
 alias ls='exa -l --color=always --group-directories-first --icons' # preferred listing
-alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias la='exa -a --color=always --group-directories-first --icons' # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons' # long format
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+alias l.="exa -a | egrep '^\.'" # show only dotfiles
 
 # Replace some more things with better alternatives
 alias cat='bat --style header --style snip --style changes --style header'
@@ -56,12 +54,13 @@ alias egrep='egrep --color=auto'
 
 set -x ANDROID_HOME ~/Android/Sdk
 set -p PATH $ANDROID_HOME/platform-tools
+set -p PATH $ANDROID_HOME/emulator
+set -p PATH $ANDROID_HOME/tools
+set -p PATH $ANDROID_HOME/tools/bin
+set -x NDK_HOME /opt/android-ndk
 
 
 source ~/.asdf/asdf.fish
-#if test -f /usr/bin/rtx
-#    /usr/bin/rtx activate -s fish | source
-#end
 
 # add .cargo/bin to path
 if test -d ~/.cargo/bin
