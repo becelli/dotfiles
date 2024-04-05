@@ -104,13 +104,3 @@ disk "/" {
 disk "/home" {
         format = "🏠 %percentage_used"
 }
-
-#order += "volume mic" 
-#
-#volume mic { 
-#  format = " %volume" 
-#  format_muted = " (%volume)" 
-#  device = "default" 
-#  mixer = "Rear Mic" 
-#  mixer_idx = 0 
-#}   

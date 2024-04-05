@@ -1,4 +1,6 @@
 set $mod Mod4
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+
 # Set redshift (bluelight mode)
 exec --no-startup-id redshift -l -21.9584:-51.317 
 # Set the network manager applet
@@ -8,26 +10,27 @@ exec --no-startup-id blueman-applet
 # Clipboard manager
 exec --no-startup-id diodon
 # Keyboard indicator
-# exec --no-startup-id gxkb
+exec --no-startup-id gxkb
+# Wallpaper changer
+exec --no-startup-id variety
 # Setup the displays
 ########################
 # Default applications #
 ########################
 
-# bindsym $mod+Shift+b exec setxkbmap br
-# bindsym $mod+Shift+u exec setxkbmap us
+bindsym $mod+Shift+b exec setxkbmap br
+bindsym $mod+Shift+u exec setxkbmap us
 
 
 set $tasks "alacritty -e htop"
-set $locker "xdg-screensaver lock"
-set $suspeder "xdg-screensaver lock && systemctl suspend"
+set $locker "~/.config/i3/lock.sh"
+set $suspeder "~/.config/i3/lock.sh && systemctl suspend"
 set $browser "/usr/bin/defaultbrowser"
 set $terminal_path /usr/bin/alacritty
 set $menu rofi -show drun -show-icons
 set $windows rofi -show window -show-icons
 set $news "alacritty -e newsboat"
 set $file_manager "alacritty -e lf"
-set $file_manager "nautilus"
 set $pulsemixer "alacritty -e pulsemixer"
 set $mail "alacritty -e neomutt"
 set $screenshot "flatpak run org.flameshot.Flameshot gui"
@@ -58,7 +61,7 @@ bindsym $mod+Shift+t exec ~/.config/i3/toggle-theme.sh
 
 bindsym $mod+d exec $menu
 
- bindsym $mod+Escape exec $locker
+bindsym $mod+Escape exec $locker
 bindsym $mod+Shift+Escape exec $suspeder
 ########################
 # Workspaces and layout
@@ -158,9 +161,33 @@ focus_follows_mouse yes
 ########################
 # Bar
 ########################
-font pango:FantasqueSansM Nerd Font 12
+# font pango:FantasqueSansM Nerd Font 12
+font pango:JetBrainsMono NF 12
 default_border pixel 2
 default_floating_border pixel 1
+
+set $base           #191724
+set $surface        #1f1d2e
+set $overlay        #26233a
+set $muted          #6e6a86
+set $subtle         #908caa
+set $text           #e0def4
+set $love           #eb6f92
+set $gold           #f6c177
+set $rose           #ebbcba
+set $pine           #31748f
+set $foam           #9ccfd8
+set $iris           #c4a7e7
+set $highlightlow   #21202e
+set $highlightmed   #403d52
+set $highlighthigh  #524f67
+
+client.focused           $gold $pine $text  $gold $gold
+client.focused_inactive  $highlighthigh $base $text  $subtle    $surface
+client.unfocused         $highlightlow $base $text  $overlay   $overlay
+client.urgent            $text     $love $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+client.background        $base
 
  bar {
     position top
@@ -168,18 +195,32 @@ default_floating_border pixel 1
     tray_padding 2
     separator_symbol "|"
     status_command i3status
-    # status_command ~/.config/i3/weather.sh
+
+    colors {
+      background $base
+      statusline $text
+      separator $highlightmed
+
+      focused_workspace  $highlighthigh $pine $text
+      active_workspace  $highlighthigh $highlightmed $text
+      inactive_workspace $highlightlow $base $text
+      urgent_workspace   $base $love $text
+      binding_mode      $surface $love $text
+          
+    }
  }
 
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-# bindsym XF86AudioNext exec playerctl next
-# bindsym XF86AudioPrev exec playerctl previous
-# bindsym XF86AudioPlay exec playerctl play-pause
-# bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
-# bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+bindsym $mod+Shift+a exec --no-startup-id amixer set Capture toggle && notify-send -t 500 "Microphone toggled"
 
 # Gaps, colors and borders
 gaps inner 7

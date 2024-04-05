@@ -68,3 +68,5 @@ if test -d ~/.cargo/bin
         set -p PATH ~/.cargo/bin
     end
 end
+
+source "/home/becelli/.asdf/installs/rust/1.77.1/env.fish"
