@@ -13,6 +13,8 @@ exec --no-startup-id diodon
 exec --no-startup-id gxkb
 # Wallpaper changer
 exec --no-startup-id variety
+# Picom
+exec --no-startup-id picom
 # Setup the displays
 ########################
 # Default applications #
@@ -25,7 +27,7 @@ bindsym $mod+Shift+u exec setxkbmap us
 set $tasks "alacritty -e htop"
 set $locker "~/.config/i3/lock.sh"
 set $suspeder "~/.config/i3/lock.sh && systemctl suspend"
-set $browser "/usr/bin/defaultbrowser"
+set $browser "/usr/bin/firefox"
 set $terminal_path /usr/bin/alacritty
 set $menu rofi -show drun -show-icons
 set $windows rofi -show window -show-icons
@@ -40,7 +42,7 @@ set $calculator "rofi -show calc -modi calc -no-show-match -no-sort"
 
 # calculator
 # bindsym $mod+Shift+c exec $calculator
-#bindsym $mod+w exec $browser
+bindsym $mod+Shift+w exec $browser
 # bindsym $mod+q exec $tasks
 # bindsym $mod+n exec $news
 # bindsym $mod+b exec $bible
@@ -51,8 +53,6 @@ bindsym $mod+Shift+m exec $journal
 bindsym $mod+x exec $tasks
 bindsym $mod+Return exec $terminal_path
 bindsym $mod+Shift+x exec $screenshot
-# bindsym $mod+t layout toggle tabbed splith splitv
-# bindsym $mod+Shift+p sticky toggle
 bindsym $mod+Shift+n exec $networks
 bindsym Print exec $screenshot
 
@@ -147,9 +147,13 @@ bindsym $mod+Shift+r restart
 bindsym $mod+r mode "resize"
 mode "resize" {
   bindsym Left resize shrink width 7 px or 7 ppt
+  bindsym Shift+Left resize shrink width 30 px or 30 ppt
   bindsym Down resize grow height 7 px or 7 ppt
+  bindsym Shift+Down resize grow height 30 px or 30 ppt
   bindsym Up resize shrink height 7 px or 7 ppt
-  bindsym Right resize grow width 7 px or 7 ppt  
+  bindsym Shift+Up resize shrink height 30 px or 30 ppt
+  bindsym Right resize grow width 7 px or 7 ppt
+  bindsym Shift+Right resize grow width 30 px or 30 ppt
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
@@ -161,8 +165,8 @@ focus_follows_mouse yes
 ########################
 # Bar
 ########################
-# font pango:FantasqueSansM Nerd Font 12
-font pango:JetBrainsMono NF 12
+font pango:FantasqueSansM Nerd Font 14
+# font pango:JetBrainsMono NF 12
 default_border pixel 2
 default_floating_border pixel 1
 
@@ -220,7 +224,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
-bindsym $mod+Shift+a exec --no-startup-id amixer set Capture toggle && notify-send -t 500 "Microphone toggled"
+bindsym $mod+Shift+a exec --no-startup-id ~/.config/i3/mute-microphone.sh
 
 # Gaps, colors and borders
 gaps inner 7
