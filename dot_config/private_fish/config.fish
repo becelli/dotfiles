@@ -31,7 +31,7 @@ alias lt='exa -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="exa -a | egrep '^\.'" # show only dotfiles
 
 # Replace some more things with better alternatives
-alias cat='bat --style header --style snip --style changes --style header'
+alias cat='batcat --style header --style snip --style changes --style header'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -52,7 +52,9 @@ alias egrep='egrep --color=auto'
 #alias compress70png="mogrify -path . *.png -resize 900 -quality 70 *.jpg"
 #alias compress100="mogrify -path . *.jpg -resize 1200 -quality 100 *.jpg"
 
-set -x ANDROID_HOME ~/Android/Sdk
+set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
+set -p PATH $JAVA_HOME/bin
+set -x ANDROID_HOME ~/Android
 set -p PATH $ANDROID_HOME/platform-tools
 set -p PATH $ANDROID_HOME/emulator
 set -p PATH $ANDROID_HOME/tools
@@ -69,4 +71,3 @@ if test -d ~/.cargo/bin
     end
 end
 
-source "/home/becelli/.asdf/installs/rust/1.77.1/env.fish"
