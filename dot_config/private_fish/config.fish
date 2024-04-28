@@ -31,7 +31,7 @@ alias lt='exa -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="exa -a | egrep '^\.'" # show only dotfiles
 
 # Replace some more things with better alternatives
-alias cat='batcat --style header --style snip --style changes --style header'
+alias cat='bat --style header --style snip --style changes --style header'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -62,7 +62,8 @@ set -p PATH $ANDROID_HOME/tools/bin
 set -x NDK_HOME /opt/android-ndk
 
 
-source ~/.asdf/asdf.fish
+~/.local/bin/mise activate fish | source
+#source ~/.asdf/asdf.fish
 
 # add .cargo/bin to path
 if test -d ~/.cargo/bin
@@ -70,4 +71,3 @@ if test -d ~/.cargo/bin
         set -p PATH ~/.cargo/bin
     end
 end
-
