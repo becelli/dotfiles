@@ -52,9 +52,7 @@ alias egrep='egrep --color=auto'
 #alias compress70png="mogrify -path . *.png -resize 900 -quality 70 *.jpg"
 #alias compress100="mogrify -path . *.jpg -resize 1200 -quality 100 *.jpg"
 
-set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
-set -p PATH $JAVA_HOME/bin
-set -x ANDROID_HOME ~/Android
+set -x ANDROID_HOME ~/Android/Sdk
 set -p PATH $ANDROID_HOME/platform-tools
 set -p PATH $ANDROID_HOME/emulator
 set -p PATH $ANDROID_HOME/tools
@@ -71,3 +69,13 @@ if test -d ~/.cargo/bin
         set -p PATH ~/.cargo/bin
     end
 end
+
+set -x EDITOR nvim
+set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gcr/ssh
+
+# pnpm
+set -gx PNPM_HOME "/home/becelli/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

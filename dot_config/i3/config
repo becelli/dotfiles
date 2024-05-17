@@ -1,5 +1,5 @@
 set $mod Mod4
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components="secrets,pkcs11,ssh"
 
 # Set redshift (bluelight mode)
 exec --no-startup-id redshift -l -21.9584:-51.317 
@@ -11,8 +11,12 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id diodon
 # Keyboard indicator
 exec --no-startup-id gxkb
+# Clipboard manager
+exec --no-startup-id greenclip daemon
+
 # Wallpaper changer
-exec --no-startup-id variety
+#exec --no-startup-id variety
+exec --no-startup-id feh --bg-fill ~/Imágenes/wallpapers/i3-wallpaper.png
 # Picom
 exec --no-startup-id picom
 # Setup the displays
@@ -35,11 +39,13 @@ set $news "alacritty -e newsboat"
 set $file_manager "alacritty -e lf"
 set $pulsemixer "alacritty -e pulsemixer"
 set $mail "alacritty -e neomutt"
-set $screenshot "flatpak run org.flameshot.Flameshot gui"
+set $screenshot "flameshot gui"
 set $journal "alacritty -e 'journalctl -f'"
 set $networks "alacritty -e nmtui"
 set $calculator "rofi -show calc -modi calc -no-show-match -no-sort"
+set $clipboard "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
+bindsym $mod+Shift+v exec $clipboard
 # calculator
 # bindsym $mod+Shift+c exec $calculator
 bindsym $mod+Shift+w exec $browser
@@ -165,8 +171,8 @@ focus_follows_mouse yes
 ########################
 # Bar
 ########################
-font pango:FantasqueSansM Nerd Font 14
-# font pango:JetBrainsMono NF 12
+# font pango:FantasqueSansM Nerd Font 13
+font pango:JetBrainsMono NF 12
 default_border pixel 2
 default_floating_border pixel 1
 

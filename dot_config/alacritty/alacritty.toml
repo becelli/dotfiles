@@ -1,4 +1,4 @@
-#import = ["~/.config/alacritty/rose-pine/rose-pine.toml"]
+import = ["~/.config/alacritty/rose-pine/rose-pine.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -7,5 +7,6 @@ TERM = "xterm-256color"
 size = 13
 
 [font.normal]
-family = "FantasqueSansM Nerd Font"
+# family = "FantasqueSansM Nerd Font"
+family = "JetBrainsMono NF"
 style = "Regular"
