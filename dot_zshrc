@@ -6,7 +6,6 @@
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-. "$HOME/.asdf/asdf.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 
@@ -44,7 +43,6 @@ alias compress70png="mogrify -path . *.png -resize 900 -quality 70 *.jpg"
 alias compress100="mogrify -path . *.jpg -resize 1200 -quality 100 *.jpg"
 
 # export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
-. ~/.asdf/plugins/java/set-java-home.zsh
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools

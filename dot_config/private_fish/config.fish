@@ -61,7 +61,6 @@ set -x NDK_HOME /opt/android-ndk
 
 
 ~/.local/bin/mise activate fish | source
-#source ~/.asdf/asdf.fish
 
 # add .cargo/bin to path
 if test -d ~/.cargo/bin
@@ -73,9 +72,7 @@ end
 set -x EDITOR nvim
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/gcr/ssh
 
-# pnpm
 set -gx PNPM_HOME "/home/becelli/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
-# pnpm end
