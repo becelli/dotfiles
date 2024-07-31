@@ -76,3 +76,40 @@ set -gx PNPM_HOME "/home/becelli/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
+
+function envsource
+    set -l envfile "$argv"
+    if not test -f "$envfile"
+        echo "❌ Unable to load $envfile"
+        return 1
+    end
+
+    set -l env_vars
+
+    while read -l line
+        if not string match -qr '^#|^$' "$line" # Skip empty lines and comments
+            if string match -qr '=' "$line" # Check for key-value pairs
+                set -l item (string split -m 1 '=' "$line")
+                set -l key "$item[1]"
+                set -l raw_value "$item[2]"
+
+                # Escape special characters in the value
+                set -l escaped_value (string escape -- "$raw_value")
+                set env_vars $env_vars "$key=$escaped_value"
+            else
+                eval $line # Execute simple commands
+            end
+        end
+    end <"$envfile"
+
+    # Sort environment variables alphabetically by key
+    set env_vars (printf "%s\n" $env_vars | sort)
+
+    # Export sorted variables and print them
+    for var in $env_vars
+        set -l key (string split -m 1 '=' $var)[1]
+        set -l value (string split -m 1 '=' $var)[2]
+        eval set -gx $key "$value"
+        echo "✅ Exported: $key"
+    end
+end

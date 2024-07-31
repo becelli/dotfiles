@@ -16,7 +16,7 @@ exec --no-startup-id greenclip daemon
 
 # Wallpaper changer
 #exec --no-startup-id variety
-#exec --no-startup-id feh --bg-fill ~/Imágenes/wallpapers/i3-wallpaper.png
+exec --no-startup-id feh --bg-fill ~/Imágenes/wallpapers/i3-wallpaper.png
 # Picom
 exec --no-startup-id picom
 # Setup the displays
