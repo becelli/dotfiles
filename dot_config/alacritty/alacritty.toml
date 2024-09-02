@@ -1,4 +1,5 @@
 # import = ["~/.config/alacritty/rose-pine/rose-pine.toml"]
+import = ["~/.config/alacritty/gruvbox/gruvbox.toml"]
 
 [env]
 TERM = "xterm-256color"

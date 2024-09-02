@@ -12,7 +12,8 @@
 	red: #eb6f92;
 	yel: #f6c177;
 
-	font: "FantasqueSansM Nerd Font 12";
+//font: "FantasqueSansM Nerd Font 12";
+	font: "JetBrainsMono NF 12";
 
 	foreground: @fgd;
 	background: @bg;
