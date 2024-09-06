@@ -5,6 +5,6 @@ node = 'lts'
 python = ['3.10', '3.11']
 go = 'latest'
 rust = 'latest'
-awscli = 'latest'
 github-cli = 'latest'
 terraform = 'latest'
+awscli = "latest"
