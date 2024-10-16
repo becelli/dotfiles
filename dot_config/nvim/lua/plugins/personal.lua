@@ -5,17 +5,18 @@ return {
     lazy = false,
   },
   -- Configure LazyVim to load gruvbox
-  { "rose-pine/neovim", name = "rose-pine" },
+  -- { "rose-pine/neovim", name = "rose-pine" },
   {
     "vuki656/package-info.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {},
     event = "BufRead package.json",
   },
+  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = {} },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "gruvbox",
     },
   },
 
