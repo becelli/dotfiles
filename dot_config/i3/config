@@ -1,6 +1,5 @@
 set $mod Mod4
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components="secrets,pkcs11,ssh"
-
 # Set redshift (bluelight mode)
 exec --no-startup-id redshift -l -21.9584:-51.317
 # Set the network manager applet
