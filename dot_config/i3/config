@@ -15,7 +15,13 @@ exec --no-startup-id greenclip daemon
 
 # Wallpaper changer
 #exec --no-startup-id variety
-exec feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
+
+# exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
+# execute always the wallpaper changer
+exec-always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
+
+exec --no-startup-id xautolock -detectsleep -time 5 -locker 'i3exit lock'
+
 # Picom
 exec --no-startup-id picom
 
@@ -173,85 +179,93 @@ focus_follows_mouse yes
 # Bar
 ########################
 # font pango:FantasqueSansM Nerd Font 15
-font pango:JetBrainsMono NF 12
+font pango:Google Sans Code NF 12
 default_border pixel 2
 default_floating_border pixel 1
 
-# set $base           #191724
-# set $surface        #1f1d2e
-# set $overlay        #26233a
-# set $muted          #6e6a86
-# set $subtle         #908caa
-# set $text           #e0def4
-# set $love           #eb6f92
-# set $gold           #f6c177
-# set $rose           #ebbcba
-# set $pine           #31748f
-# set $foam           #9ccfd8
-# set $iris           #c4a7e7
-# set $highlightlow   #21202e
-# set $highlightmed   #403d52
-# set $highlighthigh  #524f67
+# include ~/.config/i3/themes/rose-pine-moon.theme
+
+set $base           #232136
+set $surface        #2a273f
+set $overlay        #393552
+set $muted          #6e6a86
+set $subtle         #908caa
+set $text           #e0def4
+set $love           #eb6f92
+set $gold           #f6c177
+set $rose           #ea9a97
+set $pine           #3e8fb0
+set $foam           #9ccfd8
+set $iris           #c4a7e7
+set $highlightlow   #2a283e
+set $highlightmed   #44415a
+set $highlighthigh  #56526e
+
+# Teming border and Windows --------------
+# target                 title     bg    text   indicator  border
+client.focused           $rose     $pine $text  $rose      $rose
+client.focused_inactive  $text     $base $text  $subtle    $surface
+client.unfocused         $text     $base $text  $overlay   $overlay
+client.urgent            $text     $base $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+client.background        $base
+
+bar {
+  position top
+  tray_output primary
+  tray_padding 2 
+  separator_symbol "|"
+  status_command i3status -c ~/.config/i3status/config.conf
+
+  colors {
+    background $base
+    statusline $text
+    separator $highlightmed
+
+    focused_workspace  $highlighthigh $pine $text
+    active_workspace  $highlighthigh $highlightmed $text
+    inactive_workspace $highlightlow $base $text
+    urgent_workspace   $base $love $text
+    binding_mode      $surface $love $text
+  }
+}
+
+
+
+
 #
-# client.focused           $gold $pine $text  $gold $gold
-# client.focused_inactive  $highlighthigh $base $text  $subtle    $surface
-# client.unfocused         $highlightlow $base $text  $overlay   $overlay
-# client.urgent            $text     $love $text  $love      $love
-# client.placeholder       $base     $base $text  $overlay   $overlay
-# client.background        $base
-#
-#  bar {
-#     position top
-#     tray_output primary
-#     tray_padding 2
-#     separator_symbol "|"
-#     status_command i3status
-#
-#     colors {
-#       background $base
-#       statusline $text
-#       separator $highlightmed
-#
-#       focused_workspace  $highlighthigh $pine $text
-#       active_workspace  $highlighthigh $highlightmed $text
-#       inactive_workspace $highlightlow $base $text
-#       urgent_workspace   $base $love $text
-#       binding_mode      $surface $love $text
-#           
-#     }
-#  }
-#
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
+# GRUVBOX
+# set $bg #282828
+# set $red #cc241d
+# set $green #98971a
+# set $yellow #d79921
+# set $blue #458588
+# set $purple #b16286
+# set $aqua #689d68
+# set $gray #a89984
+# set $darkgray #1d2021
 
 
 #start of bar section
-bar {
-    position top
-     tray_output primary
-     tray_padding 2
-     separator_symbol "|"
-     status_command i3status -c ~/.config/i3status/config.conf
-    colors {
-        # bar background color
-        background $bg
-        # text color used for blocks that do not have a color specified.
-        statusline $yellow
-        # workspaces section            
-        #                    border  backgr. text
-        focused_workspace    $aqua $aqua $darkgray
-        inactive_workspace   $darkgray $darkgray $yellow
-        active_workspace     $darkgray $darkgray $yellow
-        urgent_workspace     $red $red $bg
-    }
-}
+# bar {
+#     position top
+#      tray_output primary
+#      tray_padding 2
+#      separator_symbol "|"
+#      status_command i3status -c ~/.config/i3status/config.conf
+#     colors {
+#         # bar background color
+#         background $bg
+#         # text color used for blocks that do not have a color specified.
+#         statusline $yellow
+#         # workspaces section            
+#         #                    border  backgr. text
+#         focused_workspace    $aqua $aqua $darkgray
+#         inactive_workspace   $darkgray $darkgray $yellow
+#         active_workspace     $darkgray $darkgray $yellow
+#         urgent_workspace     $red $red $bg
+#     }
+# }
 #end of bar section
 
 #start of window title bars & borders section
@@ -265,10 +279,10 @@ bar {
 
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
+# client.focused          $blue $blue $darkgray $purple $darkgray
+# client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+# client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+# client.urgent           $red $red $white $red $red
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
@@ -293,9 +307,5 @@ smart_gaps on
 new_float pixel 2
 bindsym $mod+q kill
 for_window [urgent=latest] focus
-
-for_window [class="Emulator"] floating enable
-for_window [class="Android Emulator - pixel3:5554"] floating enable
-for_window [class="Authy Desktop"] floating enable, move right 600 px, move down 300 px
-
-
+for_window [window_role="pop-up"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
