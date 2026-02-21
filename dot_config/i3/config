@@ -18,7 +18,7 @@ exec --no-startup-id greenclip daemon
 
 # exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
 # execute always the wallpaper changer
-exec-always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/i3-wallpaper.png
 
 exec --no-startup-id xautolock -detectsleep -time 5 -locker 'i3exit lock'
 
